@@ -30,7 +30,7 @@ def generate_data( vehicle_id, num_points=100):
     return pd.DataFrame(data)
 
 
-df = pd.concat([generate_data(f'GO-{i:03d}') for i in range(5)])
+df = pd.concat([generate_data(f'ID-{i:03d}') for i in range(5)])
 df.to_csv('fleet_data.csv', index=False)
 
 

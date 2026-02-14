@@ -4,7 +4,7 @@ A Python-based telematics data analysis tool that simulates vehicle tracking dat
 
 ## What It Does
 
-- **Simulates realistic GPS telematics data** from multiple vehicles (mimics Geotab GO device output)
+- **Simulates realistic GPS telematics data** from multiple vehicles
 - **Detects driving anomalies**: speeding events, harsh braking, unusual patterns
 - **Generates fleet health reports** with actionable insights
 - **Includes automated testing suite** with pytest
@@ -15,8 +15,8 @@ A Python-based telematics data analysis tool that simulates vehicle tracking dat
 fleet-analyzer/
 ├── data_generator.py      # Generate simulated vehicle telematics data
 ├── analyzer.py            # Anomaly detection and health report generation
+├── test_analyzer.py       # Unit tests with pytest
 ├── requirements.txt       # Python dependencies
-├── fleet_data.csv        # Generated sample data (created on first run)
 └── README.md             # This file
 ```
 
@@ -39,6 +39,12 @@ cd gps-fleet-anomaly-detector
 ```bash
 pip install -r requirements.txt
 ```
+3. **Run tests**
+```bash
+pytest test_analyzer.py -v
+```
+
+
 
 ### Usage
 
@@ -52,17 +58,31 @@ This creates `fleet_data.csv` with simulated GPS data for 5 vehicles.
 ```bash
 python analyzer.py
 ```
+
+### Docker Usage
+
+**Build the image:**
+```bash
+docker build -t gps-fleet-anomaly-detector .
+```
+
+**Run the container:**
+```bash
+docker run gps-fleet-anomaly-detector
+```
+
+
 Output example:
 ```json
 {
   "total_vehicles": 5,
   "speeding_events": 12,
   "harsh_brakes_by_vehicle": {
-    "GO-000": 3,
-    "GO-001": 5,
-    "GO-002": 2,
-    "GO-003": 4,
-    "GO-004": 1
+    "ID-000": 3,
+    "ID-001": 5,
+    "ID-002": 2,
+    "ID-003": 4,
+    "ID-004": 1
   }
 }
 ```
@@ -93,10 +113,17 @@ The simulated telematics data includes:
 - Configurable anomaly injection rates
 - Supports multiple vehicle simulation
 
+### Testing
+- Unit tests for core analysis functions
+- Test data generation for isolated testing
+- Pytest fixtures for repeatable tests
+
 ## Technical Stack
 
 - **Python 3.11**: Core language
 - **pandas**: Data manipulation and analysis
+- **pytest**: Test framework
+- **Docker**: Containerization
 
 ## Use Cases
 
@@ -108,7 +135,7 @@ This project demonstrates skills relevant to:
 
 ## Acknowledgments
 
-Inspired by real-world telematics systems devices and fleet management platforms.
+Inspired by real-world telematics systems and fleet management platforms.
 
 ---
 

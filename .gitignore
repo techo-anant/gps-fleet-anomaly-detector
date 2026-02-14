@@ -1,2 +1,21 @@
-# to ignore generated data file
+# Virtual environment
+venv/
+venv.env.local
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE
+.vscode/
+.idea/
+
+# Data files
 fleet_data.csv
+*.csv
+
+# OS files
+.DS_Store
