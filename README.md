@@ -17,6 +17,7 @@ fleet-analyzer/
 ├── analyzer.py            # Anomaly detection and health report generation
 ├── test_analyzer.py       # Unit tests with pytest
 ├── requirements.txt       # Python dependencies
+├── Dockerfile            # Container configuration
 └── README.md             # This file
 ```
 
