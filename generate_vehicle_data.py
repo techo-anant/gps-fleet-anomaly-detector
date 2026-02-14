@@ -7,20 +7,20 @@ def generate_data( vehicle_id, num_points=100):
     timestamp = datetime.now()
     lat , lon = 43.6532, -79.3832 
 
-    for i in range(num_points):
+    for _ in range(num_points):
         # randomly generate the current speed of vehicle
         speed = random.uniform(0, 120)
 
         # Assuming 5% prob of harsh breaking if speed is more tham 80kmph
-        harsh_break = speed > 80 and random.random() > 0.95
+        harsh_brake = speed > 80 and random.random() > 0.95
 
         data.append({
             'vehicle_id': vehicle_id,
             'timestamp': timestamp,
             'latitude': lat,
             'longitude': lon,
-            'speed': speed,
-            'harsh_break_event': harsh_break
+            'speed_kmph': speed,
+            'harsh_brake_event': harsh_break
         })
 
         timestamp += timedelta(seconds=30)
